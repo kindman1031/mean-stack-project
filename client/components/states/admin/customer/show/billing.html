@@ -1,0 +1,82 @@
+<div class="customer-billing well">
+
+  <div class="row" ng-if="fetchedUser.isProfileComplete">
+    <div class="col-xs-12">
+      <form name="billingChargeForm" class="well" ng-submit="addCharge(newCharge, billingChargeForm.$valid)">
+        <h4><i class="fa fa-fw fa-credit-card h6"></i>Charge Customer</h4>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group" show-errors>
+              <label for="amountInput">Amount</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input id="amountInput" type="number" step="any" class="form-control" placeholder="Amount" ng-model="newCharge.amount">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group" show-errors>
+              <label for="descrInput">Description</label>
+              <input id="descrInput" type="text" class="form-control" placeholder="Description" ng-model="newCharge.description">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="billingChargeForm.$pristine">Submit Charge</button>
+      </form>
+
+    </div>
+  </div>
+  <div class="row" ng-if="fetchedUser.isProfileComplete">
+    <div class="col-xs-12">
+      <h4>Charges</h4>
+
+      <ul class="list-unstyled" ng-if="showCharges && charges.length">
+        <li ng-repeat="charge in charges">
+          <div class="row">
+            <h5 class="col-xs-8">
+              [{{ (charge.created * 1000) | date:'MM/dd/yyyy' }}]
+              {{ charge.description }}
+            </h5>
+            <h5 class="col-xs-4 text-right">
+              <small>$</small>
+              {{ charge.amount | centscurrency }}
+            </h5>
+          </div>
+          <div class="row">
+            <p class="col-xs-8">
+              <span ng-if="charge.source.object == 'card'">{{ charge.source.brand }} ending in {{ charge.source.last4 }}</span>
+              <span ng-if="charge.source.object != 'card'">&nbsp;</span>
+            </p>
+            <p class="col-xs-4 text-right">
+              <small class="text-warning" ng-if="charge.amount_refunded > 0">
+                <span ng-if="charge.refunded">Full Refund</span>
+                <span ng-if="!charge.refunded">Partial Refund: ${{ charge.amount_refunded | centscurrency }}</span>
+              </small>
+            </p>
+          </div>
+
+          <hr ng-if="!$last"/>
+        </li>
+      </ul>
+
+      <div ng-if="showCharges && !charges.length">
+        <p>Customer does not have any charges.</p>
+      </div>
+
+      <div ng-if="!showCharges">
+        <p>Loading charges...</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row" ng-if="!fetchedUser.isProfileComplete">
+    <div class="col-xs-12">
+      User needs to complete profile first!
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,83 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/**
+ * Sets up simple columns
+ */
+@mixin set-columns($numCols, $margin:0, $padding-sides:0) {
+	$afterPadding: 100% - (($numCols - 1) * $margin);
+
+	float: left;
+	width: $afterPadding/$numCols;
+	margin-right: $margin;
+	padding-left: $padding-sides/2;
+	padding-right: $padding-sides/2;
+
+	&:nth-of-type(#{$numCols}n + #{$numCols}) {
+		margin-right: 0;
+	}
+
+	&:nth-of-type(#{$numCols}n - #{($numCols * 2) - 1}) {
+		clear: both;
+	}
+
+	&:last-of-type::after {
+//		@include clearfix;
+	}
+}
+
+/**
+ * Centers an element with css3. Parent element should be position:relative;
+ */
+@mixin css3-center {
+	position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.css-center {
+	@include css3-center();
+}
+
+/**
+ * Positions an element off screen.
+ */
+@mixin offscreen(){
+	display: none;
+	height: 0;
+	position: absolute; top: -999px; right: -999px; bottom: -999px; left: -999px;
+}
+
+/**
+ * Simple shadow mixin.
+ */
+@mixin simple-shadow($opacity:.1){
+  box-shadow: 0 0 6px rgba(0, 0, 0, $opacity);
+//	@include single-box-shadow(0, 0, 6px, 0, rgba($color-black, $opacity), false);
+}
+
+.light-shadow {
+  @include simple-shadow();
+}
+
+/**
+ * Large simple shadow mixin.
+ */
+@mixin large-shadow($opacity:.1){
+  box-shadow: 0 0 40px rgba(0, 0, 0, $opacity);
+//	@include single-box-shadow(0, 0, 40px, 0, rgba($color-black, $opacity));
+}
+
+.large-shadow {
+  @include large-shadow();
+}
+
+@mixin vertical-centre ($height) {
+  height:$height;
+  line-height:$height !important;
+  display:inline-block;
+  vertical-align:middle;
+}

@@ -1,0 +1,35 @@
+.delivery-items-modal {
+  &__heading {
+    margin-bottom: 0;
+  }
+
+  &__help {
+    color: $color-grey-primary;
+  }
+
+  &__item {
+    margin-bottom: 1em;
+    text-align: center;
+
+    &__img {
+      height: auto;
+      width: 100%;
+      opacity: 0.4;
+
+      &--active {
+        opacity: 1;
+      }
+    }
+
+    &__check {
+      color: $color-green-primary;
+      position: absolute;
+      right: 25px;
+      top: 10px;
+    }
+
+    &__name {
+      font-weight: bold;
+    }
+  }
+}

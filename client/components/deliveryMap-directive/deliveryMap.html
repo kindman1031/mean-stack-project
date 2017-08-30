@@ -1,0 +1,3 @@
+<ui-gmap-google-map id="{{ uid }}" center="map.center" zoom="map.zoom" draggable="{{ map.draggable }}" options="map.options" ng-if="map.markers">
+    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idKey="marker.id" ng-repeat="marker in map.markers"></ui-gmap-marker>
+</ui-gmap-google-map>

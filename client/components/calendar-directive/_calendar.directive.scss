@@ -1,0 +1,110 @@
+.calendar {
+  $border-colour: #FAFAFA;
+  $secondary-colour: #2875C7;
+  $spacing:10px;
+  $icon-width:40px;
+  $header-height:60px;
+
+  float:left;
+  display:block;
+  box-sizing:border-box;
+  background:white;
+  width:100%;
+  border:solid 1px $border-colour;
+  margin-bottom:10px;
+
+  > div.header {
+    border: none;
+    float:left;
+    margin-bottom: 0;
+    width:100%;
+    background: $color-blue-dark;
+    height: $header-height;
+    color:white;
+
+    > * {
+      @include vertical-centre($header-height);
+    }
+
+    >i {
+      @extend .border-box;
+      float:left;
+      width: $icon-width;
+      font-size:2em;
+      font-weight:bold;
+      position:relative;
+      padding:0 $spacing;
+      cursor: pointer;
+    }
+
+    >i.fa-angle-left {
+      text-align:left;
+    }
+
+    >i.fa-angle-right {
+      text-align:right;
+      margin-left: $icon-width*-1;
+    }
+
+    >span {
+      @extend .border-box;
+      float:left;
+      width:100%;
+      font-weight:bold;
+      text-transform:uppercase;
+      padding-left: $icon-width+$spacing;
+      margin-left: $icon-width*-1;
+      text-align:center;
+      padding-right: $icon-width;
+      color:inherit;
+    }
+  }
+  > div.week {
+    float:left;
+    width:100%;
+    border-top:solid 1px $border-colour;
+
+    &:first-child {
+      border-top:none;
+    }
+
+    >span.day {
+      @extend .border-box;
+      float:left;
+      width: 100/7 * 1%;
+      border-left:solid 1px $border-colour;
+//      font-size:0.75em;
+      text-align:center;
+      @include vertical-centre(40px);
+      background:white;
+      cursor:pointer;
+      color:black;
+
+//      transition: all.25s;
+
+      &:first-child {
+        border-left:none;
+      }
+
+      &.today {
+//        color: $color-white;
+        color: $color-grey-primary;
+        background: $color-grey-light;
+      }
+
+      &.different-month {
+        color:#C0C0C0;
+      }
+
+      &.selected {
+        background: $color-blue-primary;
+        color:white;
+      }
+    }
+
+    &.names>span {
+      color: $color-grey-primary;
+      font-weight:bold;
+    }
+  }
+}

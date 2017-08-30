@@ -1,0 +1,111 @@
+<form name="billingForm" ng-submit="updateCard()" ng-init="hide=true">
+  <h3>
+    <i class="fa fa-fw fa-credit-card h6"></i>
+    Billing
+  </h3>
+
+  <div collapse="hide">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" show-errors>
+          <label for="billing_card_name">Name on Card</label>
+          <input class="form-control" id="billing_card_name" required floating-label ng-model="card.name">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group" show-errors>
+          <label for="billing_card_number">Card Number</label>
+          <input class="form-control" id="billing_card_number" clear-on-focus required floating-label ng-model="card.number">
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group" show-errors>
+          <label for="billing_card_cvc">CVC/Security Code</label>
+          <input class="form-control" id="billing_card_cvc" required floating-label ng-model="card.cvc">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="form-group" show-errors>
+          <label for="billing_card_exp_month">Exp. Month</label>
+          <select class="form-control" id="billing_card_exp_month" required floating-label ng-options="month.val as month.label for month in expirations.months" ng-model="card.exp_month"></select>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="form-group" show-errors>
+          <label for="billing_card_exp_year">Exp. Year</label>
+          <select class="form-control" id="billing_card_exp_year" required floating-label ng-options="year for year in expirations.years" ng-model="card.exp_year" ng-change='checkValue()'></select>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" ng-disabled="billingForm.$pristine">Update Billing</button>
+
+    <div ng-if="!mini">
+
+      <hr/>
+
+      <h4>
+        Charges
+      </h4>
+
+      <ul class="list-unstyled" ng-if="charges.length">
+        <li ng-repeat="charge in charges">
+          <div class="row">
+            <h5 class="col-xs-8">
+              [{{ (charge.created * 1000) | date:'MM/dd/yyyy' }}]
+              {{ charge.description }}
+            </h5>
+            <h5 class="col-xs-4 text-right">
+              <small>$</small>
+              {{ charge.amount | centscurrency }}
+            </h5>
+          </div>
+          <div class="row">
+            <p class="col-xs-8">
+              <span ng-if="charge.source.object == 'card'">{{ charge.source.brand }} ending in {{ charge.source.last4 }}</span>
+              <span ng-if="charge.source.object != 'card'">&nbsp;</span>
+            </p>
+            <p class="col-xs-4 text-right">
+              <small class="text-warning" ng-if="charge.amount_refunded > 0">
+                <span ng-if="charge.refunded">Full Refund</span>
+                <span ng-if="!charge.refunded">Partial Refund: ${{ charge.amount_refunded | centscurrency }}</span>
+              </small>
+            </p>
+          </div>
+
+          <hr ng-if="!$last"/>
+        </li>
+      </ul>
+
+      <div ng-if="!charges.length">
+        <p>
+          You have not added any armoires, so there are no charges yet.
+        </p>
+      </div>
+    </div>
+
+    <div collapse="!hide" class="text-center">
+      <h2>
+        <i class="fa fa-cog fa-spin">&nbsp;</i>
+      </h2>
+    </div>
+  </div>
+
+  <hr/>
+
+  <h5 class="text-info">
+    Disclaimer
+  </h5>
+
+  <p>
+    We do NOT store credit card information. That data is stored on Stripe.com. This is done for the security of our customers.
+  </p>
+</form>

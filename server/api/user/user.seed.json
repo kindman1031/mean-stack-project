@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "seeded": true,
+      "firstName": "App",
+      "lastName": "Admin",
+      "local": {
+        "email": "info@getmyarmoire.com",
+        "password": "W3lcome"
+      }
+    },
+    {
+      "seeded": true,
+      "firstName": "Felipe",
+      "lastName": "Diep",
+      "phone": "3053889090",
+      "local": {
+        "email": "felipe.diep@gmail.com",
+        "password": "secretPassword1"
+      },
+      "address": {
+        "country": "United States",
+        "state": "Illinois",
+        "street_1": "1001 N. Paulina St.",
+        "street_2": "Apt 1",
+        "city": "Chicago",
+        "zip": "60622"
+      }
+    },
+    {
+      "seeded": true,
+      "firstName": "Macon",
+      "lastName": "Foscue",
+      "phone": "(571) 259-1296",
+      "local": {
+        "email": "maconfoscue@gmail.com",
+        "password": "Armoire312"
+      },
+      "address": {
+        "country": "United States",
+        "state": "Illinois",
+        "street_1": "1350 N. Wells",
+        "city": "Chicago",
+        "zip": "60610"
+      }
+    },
+    {
+      "seeded": true,
+      "firstName": "TEST",
+      "lastName": "USER",
+      "local": {
+        "email": "test@getmyarmoire.com",
+        "password": "W3lcome"
+      }
+    }
+  ]
+}

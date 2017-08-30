@@ -1,0 +1,66 @@
+.anim-fade {
+	transition: all .25s;
+
+	&.ng-hide-add,
+	&.ng-enter {
+		opacity: 0;
+	}
+
+	&.ng-hide-add-active,
+	&.ng-enter-active {
+		opacity: 1;
+	}
+
+	&.ng-hide-remove,
+	&.ng-leave {
+		opacity: 1;
+	}
+
+	&.ng-hide-remove-active,
+	&.ng-leave-active {
+		opacity: 0;
+	}
+}
+
+.anim-scale {
+//	@include transform-origin(50%, 50%);
+//	@include transition(all .25s);
+
+	&.ng-hide-add,
+	&.ng-enter {
+    transform: scale(0);
+//		height: 0;
+//		width: 0;
+	}
+
+	&.ng-hide-add-active,
+	&.ng-enter-active {
+		transform: scale(1);
+	}
+
+	&.ng-hide-remove,
+	&.ng-leave {
+    transform: scale(1);
+	}
+
+	&.ng-hide-remove-active,
+	&.ng-leave-active {
+		transform: scale(0);
+//		height: 0;
+//		width: 0;
+	}
+}
+
+.anim-fade-up {
+  .ng-enter {
+    animate: fadeInUp .25s;
+  }
+}
+
+.anim-stagger {
+  &.ng-enter-stagger,
+  &.ng-leave-stagger,
+  &.ng-move-stagger {
+    transition-delay:0.2s;
+  }
+}

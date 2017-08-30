@@ -1,0 +1,100 @@
+.sweet-alert button.cancel {
+  color: inherit;
+  background-color: inherit;
+}
+
+.input-group-addon {
+  padding-left: 0;
+  padding-right: 6px;
+}
+
+.list-inline-tight > li,
+.list-inline.list-inline-tight > li {
+  padding-right: 0;
+}
+
+.well {
+  &.well-sm {
+    > .breadcrumb {
+      margin-left: -10px;
+      margin-right: -10px;
+      margin-top: -10px;
+    }
+  }
+}
+
+.nav {
+  transition: all 0.25s;
+}
+
+.well {
+  background-color: #FFF;
+}
+
+.well > .breakout {
+  margin-left: -18px;
+  margin-right: -18px;
+}
+
+.well.well-sm > .breakout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.well.breakout {
+  margin-left: -18px;
+  margin-right: -18px;
+};
+
+.form-group > label {
+  color: #999;
+}
+
+.panel-danger,
+.panel-info,
+.panel-success,
+.panel-warning {
+  > .panel-heading {
+    color: $color-white;
+  }
+}
+// Fade collapse
+
+.collapse {
+  opacity: 0;
+  // Animate just opacity since this is a generic class.
+  transition-property: opacity;
+  transition-duration: 1s;
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+.label {
+  &.tiny {
+    font-size: 10px;
+  }
+}
+// fix scrolling issue with modals
+@media only screen and (max-device-width:768px) {
+  body.modal-open {
+    // block scroll for mobile;
+    // causes underlying page to jump to top;
+    // prevents scrolling on all screens
+    overflow: hidden;
+    position: fixed;
+  }
+}
+
+body {
+  overflow-y: scroll !important;
+  overflow-x: hidden;
+
+  &.viewport-lg {
+    // block scroll for desktop;
+    // will not jump to top;
+    // will not prevent scroll on mobile
+    position: absolute;
+  }
+}

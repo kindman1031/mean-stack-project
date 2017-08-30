@@ -1,0 +1,6 @@
+<div class="text-center">
+  <img ng-hide="!user.avatar.thumbnail" ng-src="{{ user.avatar.thumbnail }}" class="img-circle">
+  <img ng-show="!user.avatar.thumbnail" src="http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+profile+image" class="img-circle">
+  <p>&nbsp;</p>
+  <button class="btn btn-primary" ng-click="openAvatarModal()">Upload Photo</button>
+</div>

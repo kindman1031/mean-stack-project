@@ -1,0 +1,93 @@
+/**
+Matches Bootstrap 3
+@see http://getbootstrap.com/css/#responsive-utilities
+*/
+$bp-xs: max-width 767px; // Mobile
+$bp-sm: 768px 991px; // Tablet - Portrait
+$bp-md: 992px 1199px; // Tablet - Landscape
+$bp-lg: min-width 1200px; // Desktop
+/**
+By Device Name/BS3
+*/
+$bp-mobile: max-width 767px;
+$bp-xs-sm: max-width 991px;
+$bp-mobile-tablet: max-width 991px;
+$bp-tablet: 768px 991px;
+$bp-sm-md: 768px 1199px;
+$bp-tablet-desktop: min-width 768px;
+$bp-desktop: min-width 992px; // Menu heights
+$top-menu-height-desktop: 160px;
+$top-menu-height-tablet: 160px;
+$top-menu-height-mobile: 134px;
+$headerHeight: 69px;
+$sideMenuWidth: 250px; // COLORS
+$color-white: #FFF;
+$color-black: #000;
+$color-bg: $color-white;
+$color-blue-dark: #1a4576;
+$color-blue-primary: #2b98f0;
+$color-blue-light: #d8e7f8;
+
+.text-blue {
+  color: $color-blue-primary;
+}
+
+.text-blue-light {
+  color: $color-blue-light;
+}
+
+.text-blue-dark {
+  color: $color-blue-dark;
+}
+$color-purple-dark: #6e1a76;
+$color-purple-primary: #c234cf;
+$color-purple-light: #dfafe3;
+
+.text-purple {
+  color: $color-purple-primary;
+}
+
+.text-purple-light {
+  color: $color-purple-light;
+}
+
+.text-purple-dark {
+  color: $color-purple-dark;
+}
+$color-orange-dark: #cc6e00;
+$color-orange-primary: #ff9600;
+$color-orange-light: #ffb866;
+
+.text-orange {
+  color: $color-orange-primary;
+}
+
+.text-orange-light {
+  color: $color-orange-light;
+}
+
+.text-orange-dark {
+  color: $color-orange-dark;
+}
+$color-grey-dark: #555555;
+$color-grey-primary: #898989;
+$color-grey-light: #d2d2d2;
+$color-green-dark: #499349;
+$color-green-primary: #5cb85c;
+$color-green-light: #8ccd8c;
+
+.text-white {
+  color: $color-white;
+}
+
+.text-purple {
+  color: $color-purple-primary;
+}
+
+.text-purple-light {
+  color: $color-purple-light;
+}
+
+.text-purple-dark {
+  color: $color-purple-dark;
+}

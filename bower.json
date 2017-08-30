@@ -1,0 +1,111 @@
+{
+  "name": "armoire-prototype",
+  "main": "views/index.ejs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pixelbacon/armoire-prototype",
+  "authors": [
+    "Michael Minor <me@pixelbacon.com>"
+  ],
+  "description": "Project for Armoire app.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "json3": "~3.3.1",
+    "es5-shim": "~3.1.0",
+    "fontawesome": "~4.3.0",
+    "jquery": "~2.1.1",
+    "jquery.inview": "~1.0.0",
+    "jquery-sticky": "~1.0.1",
+    "gsap": "~1.16.1",
+    "angular": "=1.3.15",
+    "angular-resource": "=1.3.15",
+    "angular-cookies": "=1.3.15",
+    "angular-sanitize": "=1.3.15",
+    "angular-animate": "=1.3.15",
+    "angular-touch": "=1.3.15",
+    "angular-route": "=1.3.15",
+    "angular-ui-router": "~0.2.13",
+    "angular-ui-router-tabs": "~1.3.0",
+    "angular-bootstrap": "~0.12.0",
+    "angular-google-maps": "~2.0.9",
+    "angular-loading-bar": "~0.6.0",
+    "Faker": "~2.0.0",
+    "progressbar.js": "~0.7.4",
+    "marka": "~0.3.1",
+    "chartist": "~0.3.1",
+    "moment": "~2.9.0",
+    "bootswatch": "~3.3.2",
+    "bootstrap-sass-official": "~3.3.1",
+    "restangular": "~1.4.0",
+    "angular-velocity": "~0.2.3",
+    "angular-progress-arc": "~0.5.0",
+    "ngtoast": "~1.4.0",
+    "angular-ui-utils": "~0.2.1",
+    "bootstrap-social": "~4.8.0",
+    "ng-flow": "~2.7.0",
+    "angular-breadcrumb": "~0.3.3",
+    "angular-scroll": "~0.6.5",
+    "sweetalert": "latest",
+    "angular-sweetalert": "~1.0.4",
+    "angular-gsapify-router": "~0.0.21",
+    "angular-ui-sref-fastclick": "~0.0.1",
+    "angular-socket-io": "~0.7.0",
+    "socket.io-client": "~1.3.5",
+    "breakpoint-sass": "~2.5.0",
+    "json-formatter": "~0.2.7",
+    "fastclick": "~1.0.6",
+    "moment-timezone": "^0.5.3"
+  },
+  "resolutions": {
+    "angular": "=1.3.15",
+    "angular-animate": "=1.3.15",
+    "angular-bootstrap": "~0.12.0",
+    "gsap": "~1.16.1"
+  },
+  "overrides": {
+    "angular-filter": {
+      "main": [
+        "./dist/angular-filter.js"
+      ]
+    },
+    "bootswatch": {
+      "main": [
+        "./paper/bootstrap.css"
+      ],
+      "dependencies": {}
+    },
+    "gsap": {
+      "main": [
+        "./src/uncompressed/TweenMax.js",
+        "./src/uncompressed/jquery.gsap.js"
+      ]
+    },
+    "bootstrap-sass-official": {
+      "ignore": true
+    },
+    "bootstrap": {
+      "ignore": [
+        "*.js",
+        "*.css"
+      ]
+    },
+    "angular-route": {
+      "ignore": true
+    },
+    "fontawesome": {
+      "main": []
+    },
+    "socket.io-client": {
+      "main": [
+        "./socket.io.js"
+      ]
+    }
+  }
+}

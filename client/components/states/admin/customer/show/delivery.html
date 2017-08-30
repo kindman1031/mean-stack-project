@@ -1,0 +1,12 @@
+<div class="well">
+  <ul class="list-unstyled">
+    <li ng-repeat="delivery in fetchedUser.deliveries">
+      <div delivery-item delivery="delivery"></div>
+      <hr ng-if="!$last"/>
+    </li>
+  </ul>
+</div>
+
+<div class="well" ng-if="!fetchedUser.deliveries.length">
+  No deliveries for this customer.
+</div>

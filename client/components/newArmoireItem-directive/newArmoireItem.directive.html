@@ -1,0 +1,75 @@
+<form name="itemForm">
+  <div class="well light-shadow">
+    <div class="text-center" ng-show="newItem.sending">
+      <h3><i class="fa fa-cog fa-spin"></i></h3>
+    </div>
+
+    <div ng-show="!newItem.sending"
+       flow-init="{singleFile:true}"
+       flow-file-added="onImgAdded({file: $file})">
+      <h5>Add Item</h5>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+
+          <div class="form-group">
+            <label for="newItem.name">Name</label>
+            <input id="newItem.name" class="form-control" ng-model="newItem.name" required >
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <hr class="breakout hr-light visible-xs"/>
+          <div class="form-group">
+            <label for="newItem.type">Type</label>
+            <select id="newItem.type"
+                    class="form-control"
+                    ng-model="newItem.type"
+                    ng-options="item.id as item.title for item in clothingTypes"
+                    required >
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <h5>Options</h5>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="newItem.features.dryClean"> Dry Clean
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <hr class="breakout hr-light visible-xs"/>
+
+          <div>
+            <div class="" ng-if="newItem.img.uri">
+              <img class="img-responsive" ng-src="{{ newItem.img.uri }}"/>
+
+              <p>&nbsp;</p>
+            </div>
+
+            <span class="btn btn-block btn-primary" flow-btn flow-attrs="{accept:'image/*'}">
+              <span ng-if="!newItem.img.uri">Add photo</span>
+              <span ng-if="newItem.img.uri">Change photo</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="breakout hr-light"/>
+
+      <div class="btn-group ">
+        <button class="btn btn-primary" type="submit" ng-click="saveItem({flow: $flow})" ng-disabled="itemForm.$invalid || itemForm.$pristine || !newItem.img.uri">Add</button>
+        <button class="btn btn-danger" type="button" ng-click="resetItem({flow: $flow});">Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+<ul class="breadcrumb">
+  <li><a ui-sref="^.index">Admin</a></li>
+  <li>Customers</li>
+</ul>
+
+<div class="well">
+  <!--<h6><a ui-sref="^.index"><i class="fa fa-fw fa-angle-left"></i> Admin</a></h6>-->
+  <div class="form-group">
+    <input class="form-control" placeholder="Search" ng-model="search">
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th class="hidden-xs">Email</th>
+      <th class="hidden-xs">Messages</th>
+      <th>Last Message</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr class="cursor-pointer" ng-repeat="user in users | orderBy: '-supportConvo.modifiedAt | filter:search'" ui-sref="admin.customersDetail({ id: user.id })" ng-class="{'info':user.isCurrentUser}">
+      <td>
+          <span ng-if="user.isCurrentUser">
+            <strong><i>YOU</i></strong>
+          </span>
+
+          <span ng-if="!user.isCurrentUser">
+            {{ user.firstName }} {{ user.lastName }}
+          </span>
+      </td>
+      <td class="hidden-xs">{{ user.local.email }}</td>
+      <td class="hidden-xs">{{ user.supportConvo.messages.length }}</td>
+      <td>{{ user.supportConvo.modifiedAtReadable }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

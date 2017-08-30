@@ -1,0 +1,21 @@
+<div class="modal-body">
+  <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+    <div class="text-center">
+      <div ng-if="!$flow.files.length">
+        <img src="http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image" class="img-circle">
+      </div>
+
+      <div ng-if="$flow.files.length">
+        <img class="img-responsive img-rounded" style="display: inline-block" flow-img="$flow.files[0]">
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div class="text-center">
+      <button class="btn btn-primary" ng-if="!$flow.files.length" flow-btn="">Select image<input type="file" style="visibility: hidden; position: absolute;"></button>
+      <button class="btn btn-primary" ng-if="$flow.files.length" ng-click="ok($flow.files[0])">Save</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>

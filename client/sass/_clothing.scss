@@ -1,0 +1,13 @@
+.clothing-list {
+	.clothing-item {
+		margin-bottom: 2em;
+
+		@include breakpoint($bp-tablet-desktop){
+			@include set-columns(3,4%);
+		}
+
+		@include breakpoint($bp-mobile){
+			@include set-columns(2,4%);
+		}
+	}
+}

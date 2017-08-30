@@ -1,0 +1,47 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <h4>Email</h4>
+
+      <p>{{ fetchedUser.local.email }}</p>
+    </div>
+
+    <div class="col-xs-6 col-sm-3">
+      <h4>Phone</h4>
+
+      <p>
+        <a href="tel:{{ fetchedUser.phone }}" ng-if="fetchedUser.phone">{{ fetchedUser.phone }}</a>
+        <strong class="text-danger" ng-if="!fetchedUser.phone">N/A</strong>
+      </p>
+    </div>
+
+    <div class="col-xs-6 col-sm-3">
+      <h4>Billable</h4>
+
+      <p class="text-success" ng-if="fetchedUser.isBillable">
+        YES!
+      </p>
+
+      <p class="text-danger" ng-if="!fetchedUser.isBillable">
+        <strong>NO!</strong><br/>
+      </p>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <h4>Address</h4>
+      <address class="vcard" ng-if="fetchedUser.address">
+                <span class="adr">
+                    <span class="street-address">{{ fetchedUser.address.street_1 }} {{ fetchedUser.address.street_2 }}</span> <br/>
+                    <span class="locality">{{ fetchedUser.address.city }}</span>,
+                    <span class="region">{{ fetchedUser.address.state }}</span> <br/>
+                    <span class="postal-code">{{ fetchedUser.address.zip }}</span>
+                    <span class="country-name">{{ fetchedUser.address.country }}</span>
+                </span>
+      </address>
+
+      <div class="text-danger" ng-if="!fetchedUser.address">
+        <strong>N/A</strong>
+      </div>
+    </div>
+  </div>
+</div>

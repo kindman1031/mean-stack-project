@@ -1,0 +1,83 @@
+<h4>
+  <span ng-if="delivery.delivered">
+    {{ delivery.deliveredAtReadable }}
+  </span>
+
+  <span ng-if="!delivery.delivered">
+    {{ delivery.dateReadable }}
+  </span>
+
+  <br>
+
+  <small access-level="accessLevels.admin">
+    <a ui-sref="^.customer.show({id: delivery.customer.id})">{{ delivery.customer.firstName }} {{ delivery.customer.lastName }}</a>
+  </small>
+</h4>
+
+<div class="btn-group btn-group-sm margin-bottom">
+  <!-- Details -->
+  <button class="btn btn-default" ng-click="hideDetails = !hideDetails"><i class="fa fa-fw fa-lg fa-search"></i> Details</button>
+  <!-- MAP -->
+  <a class="btn btn-default" ng-href="http://maps.apple.com/?q={{ delivery.customer.addressReadable }}" target="map"><i
+    class="fa fa-fw fa-lg fa-globe"></i> Map</a>
+</div>
+
+<div access-level="accessLevels.admin">
+  <div class="btn-group btn-group-sm margin-bottom" ng-if="!delivery.delivered">
+    <!-- Start/Finish -->
+    <button class="btn btn-primary" ng-if="!delivery.active && !delivery.canceled && !delivery.delivered" ng-click="activateDelivery()"><i
+      class="fa fa-fw fa-lg fa-flag-o"></i> Start
+    </button>
+
+    <button class="btn btn-success" ng-if="delivery.active && !delivery.canceled" ng-click="finishDelivery()"><i
+      class="fa fa-fw fa-lg fa-flag-checkered"></i> Finish
+    </button>
+
+    <!-- Cancel -->
+    <button class="btn btn-danger" ng-if="!delivery.canceled" ng-click="cancelDelivery()"><i class="fa fa-fw fa-lg fa-ban"></i> Cancel</button>
+
+    <button class="btn btn-danger" ng-if="delivery.canceled"><i class="fa fa-fw fa-lg fa-circle-o"></i> Un-Cancel</button>
+  </div>
+</div>
+
+<div class="details" collapse="hideDetails" ng-init="hideDetails = delivery.delivered">
+  <div class="row">
+    <div class="col-sm-5">
+
+      <h5>Address</h5>
+
+      <p>
+        <address>
+          {{ delivery.customer.address.street_1 }}
+          {{ delivery.customer.address.street_2 }}
+          <br/>
+          {{ delivery.customer.address.city }}, {{ delivery.customer.address.state }}, {{ delivery.customer.address.zip }}
+          <br/>
+          {{ delivery.customer.address.country }}
+        </address>
+      </p>
+    </div>
+
+    <div class="col-sm-7">
+      <h5>Contents</h5>
+
+      <div ng-if="delivery.armoire">
+        <p>
+          <strong>Armoire:</strong> {{ delivery.armoire.type.title }} <br/>
+          <strong>Ordered:</strong> {{ delivery.armoire.createdAtReadable }} <br/>
+          <strong>Name:</strong> {{ delivery.armoire.name }}
+        </p>
+      </div>
+
+      <div ng-if="delivery.clothing">
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-sm-3 col-md-2" ng-repeat="item in delivery.clothing | filter:q | orderBy: '-createdAt'">
+            <div clothing-item item="item" hide-deliver-button="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<json-formatter json="this"></json-formatter>-->

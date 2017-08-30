@@ -1,0 +1,33 @@
+<div collapse="showNewItem">
+  <div ng-hide="true" class="pull-right" data-access-level="accessLevels.admin">
+    <button class="btn btn-lg btn-primary" ng-click="showNewItem = true"><i class="fa fa-plus"></i></button>
+  </div>
+
+  <h4>{{ armoire.name }}</h4>
+  <span class="label label-info">{{ armoire.type.title }}</span>
+  <span class="label label-info">{{ armoire.items.length }} items</span>
+</div>
+
+
+<div collapse="!showNewItem" class="">
+  <div new-armorie-item armoire="armoire"></div>
+</div>
+
+<hr class="hr-clear"/>
+
+<div>
+  <div class="well light-shadow">
+    <div class="">
+      <input id="search" class="form-control" ng-model="q" placeholder="Search">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-4 col-sm-3 col-md-2" ng-repeat="item in armoire.items | filter:q | orderBy: '-createdAt'"  ng-hide="item.status === 'delivered'">
+      <div clothing-item item="item" on-deliver="openDeliverItemsModal(itemId)"></div>
+    </div>
+  </div>
+</div>
+
+
+<!--<json-formatter json="this"></json-formatter>-->

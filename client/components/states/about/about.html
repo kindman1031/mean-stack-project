@@ -1,0 +1,25 @@
+<h1>About Armoire</h1>
+
+<p class="lead">Armoire is your personal trunk in the cloud. Order an armoire and it will show up to you door with an assistant that will help you categorize, photograph, and tag everything you put in it.</p>
+
+<p>After that just open the app on your phone, pick an article of clothing, tell us where to send it, and it will be on it's way and to you within a few days.</p>
+
+<p>Seasonal storage has never been easier.</p>
+
+<hr/>
+
+<h3>FAQ</h3>
+
+<div ng-repeat="(fIndex, f) in faq" ng-init="fC = false" ng-click="fC = !fC">
+    <h5 class="text-success">
+        {{f.question }}
+    </h5>
+
+    <div collapse="fC">
+        <small>
+            {{ f.answer }}
+        </small>
+    </div>
+
+    <hr ng-if="!$last">
+</div>

@@ -1,0 +1,56 @@
+{{#extend "email.alert.layout"}}
+  {{#content "body"}}
+    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 16px; margin: 0;">
+      <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 16px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+        <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+          {{ customer.firstName }} {{ customer.lastName }}
+        </strong>
+        has requested a delivery with {{ items.length }} items!
+      </td>
+    </tr>
+    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+      <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 10px;" valign="top">
+        <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+          Date:
+        </strong>
+        {{ dateFormat deliveryTime format="dddd, MMMM Do YYYY @ h:mm a" }}<br/>
+      </td>
+    </tr>
+    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+      <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 10px;" valign="top">
+        <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+          Address:
+        </strong><br/>
+        {{ address.street_1 }}<br/>
+        {{#if address.street_2}}
+          {{ address.street_2 }}<br/>
+        {{/if}}
+        {{ address.city }}, {{ address.state }} {{ address.zip }}<br/>
+        {{ address.country }}
+      </td>
+    </tr>
+    {{#if items.length}}
+    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+      <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 10px;" valign="top">
+        <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+          Items:
+        </strong>
+      </td>
+    </tr>
+    {{/if}}
+    {{#each items}}
+      <tr>
+        <td>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="43%"><img src="{{ this.image.thumbnail }}" width="150" height="150" border="0" alt=""/></td>
+              <td width="57%" align="left" valign="top"><font style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#111111; font-size:20px"><strong><em>{{ this.name }}</em></strong></font> <br />
+                <font style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color:#000000; font-size:13px; line-height:21px">{{ this.type.title }}</font>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    {{/each}}
+  {{/content}}
+{{/extend}}

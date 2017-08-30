@@ -1,0 +1,48 @@
+<ui-view>
+  <div class="alert alert-warning" ng-if="!currentUser.isBillable">
+    <h4>Almost there...</h4>
+
+    <p>You need to update your billing information before adding any Armoires.</p>
+
+    <p>&nbsp;</p>
+    <a class="btn btn-primary" ui-sref="profile">Go to Profile</a>
+  </div>
+
+  <div ng-if="currentUser.isBillable && currentUser.armoires.length">
+    <h4>My Armoires</h4>
+
+    <div ng-if="currentUser.armoires.length">
+      <div class="row">
+        <div class="armoire col-xs-12 col-sm-6 col-md-4 text-center" ng-repeat="armoire in currentUser.armoires">
+          <a class="btn btn-block btn-primary" ui-sref=".show({ armoireId: armoire.id })">
+            <h4 class="text-white">{{ armoire.name }}</h4>
+
+            <p class="text-white">
+              {{ armoire.items | countNonDelivered }} <small>items</small>
+            </p>
+
+            <p class="label label-info">
+              {{ armoire.type.title }}
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr/>
+  </div>
+
+  <h4>Add Another</h4>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6" ng-repeat="aType in armoireTypes | orderBy: 'price'">
+      <ul class="list-unstyled">
+        <li class="well">
+          <p class="h4">{{ aType.title }}</p>
+
+          <p ng-bind-html="aType.description"></p>
+          <button class="btn btn-primary" ui-sref=".create({ armoireType: aType.id })">Choose {{ aType.title }}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ui-view>

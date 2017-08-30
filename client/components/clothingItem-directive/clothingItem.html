@@ -1,0 +1,24 @@
+<div class="clothingItem-img">
+
+  <img
+    class="img-responsive img-rounded light-shadow"
+    style="width: 100%;"
+    ng-src="{{ item.image.thumbnail }}"
+    on-img-error="https://placehold.it/150x150?text=Armoire" />
+
+  <div class="clothingItem-labels text-center">
+    <span class="label label-info">{{ item.type.title }}</span>
+  </div>
+
+</div>
+
+<div class="clothingItem-details text-center light-shadow">
+  <p>
+    {{ item.name }}
+  </p>
+
+  <div class="clothingItem-cta" ng-hide="hideDeliverButton" ng-switch="item.status">
+    <button ng-switch-when="inarmoire" class="btn btn-xs btn-block btn-primary" ng-click="onDeliver({itemId: item.id})">Deliver</button>
+    <span ng-switch-when="indelivery" class="btn btn-xs btn-block btn-warning">Awaiting Delivery</span>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="alert alert-warning" ng-if="!user.isBillable">
+  <h4>Almost there...</h4>
+
+  <p>You need to update your billing information before adding any Armoires.</p>
+
+  <p>&nbsp;</p>
+
+  <a class="btn btn-primary" ui-sref="profile">Go to Profile</a>
+</div>
+
+<div class="well" ng-show="user.isBillable">
+  <div class="form-group">
+    <input class="form-control" placeholder="Search" ng-model="q">
+  </div>
+</div>
+
+<div class="row" ng-show="user.isBillable">
+  <div class="col-xs-6 col-sm-4 col-sm-3 col-md-2" ng-repeat="item in clothes | filter:q | orderBy: '-createdAt'" ng-hide="item.status === 'delivered'">
+    <div clothing-item item="item" hide-deliver-button="true"></div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div ui-view >
+  <div class="well well-sm">
+    <div class="form-group">
+      <input class="form-control" placeholder="Search" ng-model="search">
+    </div>
+
+    <div class="breakout">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th class="hidden-xs">Email</th>
+          <th>
+            <small>Items</small>
+            /Armoires
+          </th>
+          <th class="hidden-xs">Billable</th>
+          <th class="hidden-xs">Details</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="cursor-pointer"
+            ng-repeat="user in users | filter:search"
+            ui-sref=".show({ id: user.id })"
+            ng-class="{'info':user.isCurrentUser}"
+          >
+          <td>
+            <span ng-if="user.isCurrentUser">
+              <strong><i>YOU</i></strong>
+            </span>
+
+            <span ng-if="!user.isCurrentUser">
+              {{ user.firstName }} {{ user.lastName }}
+            </span>
+          </td>
+          <td class="hidden-xs">{{ user.local.email }}</td>
+          <td>
+            <small>
+              {{ user.totalItems }}
+            </small>
+            /
+            {{ user.armoires.length }}
+          </td>
+          <td class="hidden-xs">
+            <i class="fa" ng-class="{'fa-check-circle':user.isBillable, 'fa-exclamation-circle':!user.isBillable}"></i>
+          </td>
+          <td class="hidden-xs">
+            <ul class="list-inline list-inline-tight" style="margin-bottom:0">
+            <li ng-if="user.isAdmin"><small class="label label-info">ADMIN</small></li>
+            <li ng-if="!user.isProfileComplete"><small class="label label-danger">Incomplete Profile</small></li>
+            <li ng-if="!fetchedUser.seeded"><small class="label label-default">Seeded</small></li>
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<h3>Info</h3>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="fNameInput">First Name</label>
+            <input id="fNameInput" class="form-control" ng-model="user.fName" placeholder="First Name">
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="lNameInput">Last Name</label>
+            <input id="lNameInput" class="form-control" ng-model="user.lName" placeholder="Last Name">
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="emailInput">Email</label>
+    <input id="emailInput" class="form-control" ng-model="user.email" type="email" placeholder="Email">
+</div>
+
+<hr/>
+
+<h3>Address</h3>
+
+<div class="row">
+    <div class="col-sm-8">
+        <div class="form-group">
+            <!--<label for="aStreetInput">Street</label>-->
+            <input id="aStreetInput" class="form-control" ng-model="user.aStreet" placeholder="Street">
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <!--<label for="aStreetSecondaryInput">Last Name</label>-->
+            <input id="aStreetSecondaryInput" class="form-control" ng-model="user.aStreetSecondary" placeholder="Apt">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-8">
+        <div class="form-group">
+            <!--<label for="aCityInput">Last Name</label>-->
+            <input id="aCityInput" class="form-control" ng-model="user.aCity" placeholder="City" typeahead="city for city in aStateInput.cities | filter:$viewValue | limitTo:8">
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <!--<label for="aZipInput">Zip</label>-->
+            <input id="aZipInput" class="form-control" ng-model="user.aZip" placeholder="Zip">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label>State</label>
+            <select id="aStateInput" ng-model="user.aState" class="form-control" ng-options="state as state.state for state in aCountryInput.states"></select>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label>Country</label>
+            <select id="aCountryInput" ng-model="user.aCountry" class="form-control" ng-options="country as country.country for country in regions"></select>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<h3>Password</h3>
+
+<div class="row">
+    <div class="form-group col-sm-4">
+        <label for="currentPasswordInput">Current Password</label>
+        <input id="currentPasswordInput" class="form-control" ng-model="currentPassword" type="password" placeholder="Current password">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" class="form-control" ng-model="password" type="password" placeholder="New password">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Repeat</label>
+        <input class="form-control" ng-model="passwordRepeatInput" type="password" placeholder="Repeat new password">
+    </div>
+</div>
+
+<button class="btn btn-primary">Update</button>

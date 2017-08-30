@@ -1,0 +1,10 @@
+.sticky-wrapper.is-sticky {
+  > .nav {
+    @include simple-shadow();
+    z-index: 10;
+
+    &.nav-tabs {
+      background: $color-white;
+    }
+  }
+}

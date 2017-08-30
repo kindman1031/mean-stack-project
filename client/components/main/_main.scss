@@ -1,0 +1,556 @@
+.bootstrap-view-xs,
+.bootstrap-view-sm,
+.bootstrap-view-md,
+.bootstrap-view-lg {
+  display: none
+}
+
+/**
+Samples
+*/
+/* @include breakpoint($bp-mobile){ ... } */
+/* @include breakpoint($bp-xs-sm){ ... } */
+/* @include breakpoint($bp-mobile-tablet){ ... } */
+/* @include breakpoint($bp-sm-md){ ... } */
+/* @include breakpoint($bp-tablet-desktop){ ... } */
+/* @include breakpoint($bp-desktop){ ... } */
+
+.hr-light {
+  border-top: solid 1px #f9f9f9;
+}
+
+.hr-clear {
+  border: none;
+}
+
+.offscreen {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.no-bg {
+  background: none;
+}
+
+.border-box {
+  box-sizing:border-box;
+}
+
+// /bower_components/angular-sticktotop
+.out-of-view {
+  visibility: hidden;
+}
+
+.sticky-div-copy {
+  display: none;
+  position: fixed;
+  top: 0px;
+}
+
+.sticky-div-original {
+  position: relative;
+}
+
+.sticky-div-copy.out-of-view {
+  visibility: visible;
+  display: block;
+}
+
+[sticky-container] {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+// bower_components/json-formatter
+.json-formatter {
+  padding: 1em;
+}
+
+.json-formatter-dark {
+  background: #333;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+
+/* Space out content a bit */
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body.logged-in {
+  #background {
+//    background: url('/images/backgrounds/patterns/subtle_white_feathers/subtle_white_feathers.png');
+//    background-image: url('/images/backgrounds/dark-bg.jpg');
+  }
+}
+
+#background {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  //  bottom: 0;
+  //  right: 0;
+  z-index: -1;
+
+  background: url('/images/backgrounds/very-light-bg.jpg') center bottom no-repeat;
+  background-size: cover;
+
+  transition: all .25s;
+}
+
+// Bootstrap modal
+.modal-backdrop {
+  z-index: 1031;
+  bottom: 0;
+}
+
+// No gutters for bootstrap
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+label,
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+#main-container,
+#main-menu,
+#content-wrapper {
+  //  transition: all .25s;
+}
+
+#content-wrapper {
+  //  min-height: 100%;
+  //  @include large-shadow(.3);
+}
+#main-container {
+  //  margin-top: $headerHeight;
+  //  background: #FFF;
+  border-radius: 4px;
+  //  margin-bottom: 40px;
+  padding-top: 20px;
+  //  padding-bottom: 20px;
+}
+
+#main-menu {
+  //  background: none;
+  //  box-shadow: none;
+  background: rgba(#FFF,.8);
+  background-image: url('/images/backgrounds/header-bg.jpg');
+  transform: translate(0, -80px);
+  transition: all .25s;
+  //  z-index: 2;
+}
+
+body.logged-in {
+  #main-menu {
+    //    @include translateY(0);
+    transform: translate(0, 0);
+  }
+
+  #main-container {
+    padding-top: 104px;
+  }
+}
+
+.navbar-brand img {
+  height: 28px;
+}
+
+#side-menu-button {
+  color: #FFF;
+  padding: 18px;
+}
+
+#sidemenu-backdrop {
+  background: rgba(#000, .5);
+  position: fixed; top: 0; bottom: 0; right: 0; left: 0;
+  opacity: 0;
+  z-index: 1051;
+  transition: all .25s;
+  transform: translate(100%, 0);
+}
+
+#side-menu {
+  //	background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.8) url('/images/dark_wood.png');
+  background-size: auto;
+  width: $sideMenuWidth;
+  position: fixed; top: 0; bottom: 0; right: 0;
+  z-index: 1052;
+  transition: all .25s;
+  transform: translate($sideMenuWidth, 0);
+
+  .close-btn {
+    color: #FFF;
+    position: absolute; top: 0; right: 0;
+    z-index: 1;
+    padding: .6em .9em;
+    //		right: -1em;
+  }
+
+  .header {
+    background-color: rgba(0,0,0,.5);
+    border-bottom: 2px solid rgba(0,0,0,.3);
+    color: #FFF;
+    font-size: 24px;
+    line-height: .8em;
+    height: 65px;
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 9px 16px;
+
+    .welcome {
+      font-size: 50%;
+      opacity: .7;
+    }
+
+    h3 {
+      padding-bottom: 11px;
+    }
+  }
+
+  .user a {
+    color: #85a2a0;
+  }
+
+  ul {
+    padding: 0px 20px;
+
+    li {
+      //			font-size: 1.1em;
+    }
+
+    a {
+      display: block;
+      padding: .25em;
+      font-size: 1.2em;
+      //			color: #84d2e9;
+
+      .fa {
+        margin-right: .3em;
+      }
+    }
+  }
+
+  hr {
+    border-top-color: rgba(0,0,0,.5);
+  }
+}
+
+#side-menu-toggle:checked ~ #sidemenu-backdrop {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+#side-menu-toggle:checked ~ #side-menu {
+  transform: translate(0, 0);
+}
+
+
+body.modal-open #main-menu,
+body.modal-open #content-wrapper,
+body.modal-open #background,
+#side-menu-toggle:checked ~ #main-menu,
+#side-menu-toggle:checked ~ #content-wrapper,
+#side-menu-toggle:checked ~ #background {
+  filter: blur(4px);
+//  opacity: .5;
+}
+
+#side-menu-toggle:checked ~ #content-wrapper {
+  opacity: .5;
+  transform: translate(-$sideMenuWidth/2, 0);
+}
+
+#main-menu,
+#content-wrapper {
+  transition: all .25s;
+}
+
+/* Custom page footer */
+.footer {
+  margin-top: 15px;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+#top-menu-search {
+  margin-top: .2em;
+  padding: 0 1em;
+}
+
+
+#masterUI,
+#uiView {
+
+
+  &::after {
+    @include clearfix();
+  }
+
+  /*
+  // ANIMATION
+  overflow: visible;
+  @include transition(opacity .5s);
+
+  &.ng-enter {
+    @include opacity(0);
+//    @include translate(0, 1em);
+    height: 0px;
+  }
+
+  &.ng-enter-active {
+    @include opacity(1);
+    @include translate(0, 0);
+  }
+
+  &.ng-leave {
+    @include opacity(1);
+    height: 0px;
+  }
+
+  &.ng-leave-active {
+    @include opacity(0);
+    height: 0px;
+  }
+  */
+}
+
+
+// GoogleMaps
+.angular-google-map-container {
+  width: 100%;
+  height: 300px;
+  //  @include simple-shadow(.2);
+}
+
+.clear {
+  @include clearfix;
+}
+
+// See http://angular-ui.github.io/bootstrap/
+.nav, .pagination, .carousel, .panel-title a, a { cursor: pointer; }
+
+.loading {
+  background: $color-bg;
+  position: relative;
+
+  .icon-container {
+    @include css3-center();
+
+    .fa {
+      //      font-size: 24px;
+    }
+  }
+
+  &.loading-fullscreen {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  }
+}
+
+body.home {
+  #main-container {
+    background-color: rgba(#FFF,0);
+  }
+}
+
+.text-white {
+  color: #FFF;
+}
+
+.text-dark {
+  color: #2c2c2c;
+}
+
+.bg-white {
+  background-color: #FFF;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+body.customer-support {
+  #uiView {
+    //    padding-bottom: 120px;
+  }
+
+  #main-container {
+    //    padding-bottom: 0;
+  }
+
+  #reply-box {
+    background: $color-white;
+    margin-bottom: 0;
+    //    position: fixed; bottom: 0;
+    //    z-index: 1;
+  }
+
+  .message {
+    background: $color-white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    //    margin-right: 20px;
+    margin-bottom: 1em;
+    padding: 1em;
+
+    &.from-user{
+      //      margin-left: 20px;
+      //      margin-right: 0;
+    }
+
+    .message-date {
+      float: right;
+      font:{
+        //        size: .7em;
+      }
+    }
+
+    .message-heading,
+    .message-body {
+      padding: {
+        //        top: 4px;
+        //        bottom: 4px;
+      }
+    }
+
+    .message-footer {
+      font:{
+        //        size: .8em;
+        weight: bold;
+      }
+      padding: {
+        top: .5em;
+      }
+    }
+
+    .message-body {
+
+    }
+  }
+}
+
+.logo-body {
+  margin-bottom: 24px;
+}
+
+.textarea-small {
+  font-size: 12px;
+}
+
+.well > #reply-box {
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-bottom: 0;
+}
+
+.btn-big {
+  padding: 12% 0;
+  font-size: 18px;
+  margin-bottom: 15px;
+}

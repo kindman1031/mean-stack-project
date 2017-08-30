@@ -1,0 +1,138 @@
+<div class="panel panel-primary" collapse="currentDeliveries.length == 0">
+  <div class="panel-heading pointer" ng-click="hideCurrent = !hideCurrent">
+    Current
+
+    <small>
+      <strong>({{ currentDeliveries.length }})</strong>
+    </small>
+
+    <div class="pull-right">
+      <i class="fa fa-lg fa-chevron-up" ng-if="!hideCurrent"></i>
+      <i class="fa fa-lg fa-chevron-down" ng-if="hideCurrent"></i>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div collapse="!hideCurrent">
+      {{ currentDeliveries.length }} deliveries
+    </div>
+
+    <div collapse="hideCurrent">
+      <ul class="list-unstyled">
+        <li ng-repeat="(dI, d) in currentDeliveries" ng-init="dCollapsed = true;">
+          <div delivery-item delivery="d" on-update="refresh()"></div>
+          <hr ng-if="!$last"/>
+        </li>
+      </ul>
+
+      <div ng-if="!currentDeliveries.length">
+        <p>No current deliveries...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default" collapse="futureDeliveries.length == 0">
+  <div class="panel-heading pointer" ng-click="hideUpcoming = !hideUpcoming">
+    Upcoming
+
+    <small>
+      <strong>({{ futureDeliveries.length }})</strong>
+    </small>
+
+    <div class="pull-right">
+      <i class="fa fa-lg fa-chevron-up" ng-if="!hideUpcoming"></i>
+      <i class="fa fa-lg fa-chevron-down" ng-if="hideUpcoming"></i>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div collapse="!hideUpcoming">
+      {{ futureDeliveries.length }} deliveries
+    </div>
+
+    <div collapse="hideUpcoming">
+      <ul class="list-unstyled">
+        <li ng-repeat="(dI, d) in futureDeliveries" ng-init="dCollapsed = true;">
+          <div delivery-item delivery="d" on-update="refresh()"></div>
+          <hr ng-if="!$last"/>
+        </li>
+      </ul>
+
+      <div ng-if="!futureDeliveries.length">
+        <p>No upcoming deliveries...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-success" collapse="finishedDeliveries.length == 0">
+  <div class="panel-heading pointer" ng-click="hideCompleted = !hideCompleted">
+    Completed
+
+    <small>
+      <strong>({{ finishedDeliveries.length }})</strong>
+    </small>
+
+    <div class="pull-right">
+      <i class="fa fa-lg fa-chevron-up" ng-if="!hideCompleted"></i>
+      <i class="fa fa-lg fa-chevron-down" ng-if="hideCompleted"></i>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div collapse="!hideCompleted">
+      {{ finishedDeliveries.length }} deliveries
+    </div>
+
+    <div collapse="hideCompleted">
+      <ul class="list-unstyled">
+        <li ng-repeat="(dI, d) in finishedDeliveries | orderBy:'modifiedAt'">
+          <div delivery-item delivery="d" on-update="refresh()"></div>
+          <hr ng-if="!$last"/>
+        </li>
+      </ul>
+
+      <div ng-if="!finishedDeliveries.length">
+        <p>No finished deliveries...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-danger" collapse="canceledDeliveries.length == 0">
+  <div class="panel-heading pointer" ng-click="hideCancelled = !hideCancelled">
+    Cancelled
+
+    <small>
+      <strong>({{ canceledDeliveries.length }})</strong>
+    </small>
+
+    <div class="pull-right">
+      <i class="fa fa-lg fa-chevron-up" ng-if="!hideCancelled"></i>
+      <i class="fa fa-lg fa-chevron-down" ng-if="hideCancelled"></i>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div collapse="!hideCancelled">
+      {{ canceledDeliveries.length }} deliveries
+    </div>
+
+    <div collapse="hideCancelled">
+      <ul class="list-unstyled">
+        <li ng-repeat="(dI, d) in canceledDeliveries | orderBy:'modifiedAt'">
+          <div delivery-item delivery="d" on-update="refresh()"></div>
+          <hr ng-if="!$last"/>
+        </li>
+      </ul>
+
+      <div ng-if="!canceledDeliveries.length">
+        <p>No cancelled deliveries...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<json-formatter json="this"></json-formatter>-->

@@ -1,0 +1,18 @@
+<h3>
+  {{ fetchedUser.firstName }} {{ fetchedUser.lastName }}
+</h3>
+
+<ul class="list-inline list-inline-tight">
+  <li ng-if="fetchedUser.isAdmin"><small class="label label-info">ADMIN</small></li>
+  <li ng-if="fetchedUser.id === currentUser.id"><small class="label label-info">YOU</small></li>
+  <li ng-if="fetchedUser.isProfileComplete"><small class="label label-success">Completed Profile</small></li>
+  <li ng-if="!fetchedUser.isProfileComplete"><small class="label label-danger">Incomplete Profile</small></li>
+  <li ng-if="!fetchedUser.seeded"><small class="label label-default">Seeded</small></li>
+</ul>
+
+<tabs data="tabData"></tabs>
+
+<div class="well well-sm">
+  <ui-view></ui-view>
+</div>
+

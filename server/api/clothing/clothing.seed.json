@@ -1,0 +1,36 @@
+{
+  "clothingTypes": [
+    {
+      "title": "Shirt",
+      "price": 2
+    },
+    {
+      "title": "Tie or Scarf",
+      "price": 4
+    },
+    {
+      "title": "Winter or 3/4 Coat",
+      "price": 15
+    },
+    {
+      "title": "Dress",
+      "price": 8
+    },
+    {
+      "title": "Suit or Sport Jacket",
+      "price": 5
+    },
+    {
+      "title": "Pants",
+      "price": 4
+    },
+    {
+      "title": "Shorts or Skirt",
+      "price": 4
+    },
+    {
+      "title": "Shirt, Blouse, or Sweater",
+      "price": 4
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<form name="armoireForm">
+  <div class="modal-header">
+    New Armoire
+  </div>
+
+  <div class="modal-body">
+    <div class="form-group"  show-errors>
+      <label for="name">Armoire Name</label>
+      <input name="name" class="form-control" ng-model="armoire.name" required>
+    </div>
+
+    <h4>Delivery Date</h4>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <label for="name">Date</label>
+        <div class="input-group">
+          <input type="text" class="form-control" name="date" ng-show="armoire.date"
+                 datepicker-popup="{{date.format}}"
+                 ng-model="armoire.date"
+                 is-open="date.opened"
+                 min-date="date.minDate"
+                 datepicker-options="date.options"
+                 date-disabled="disabled(armoire.date, mode)"
+                 ng-required="true"
+                 close-text="Close" />
+
+          <span class="" ng-class="{'input-group-btn':armoire.date}">
+            <button type="button" class="btn btn-primary" ng-click="date.open($event)"><i class="fa fa-calendar"></i></button>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input name="time" class="form-control" type="time" required>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="text-center">
+      <button class="btn btn-primary" ng-if="armoireForm.$valid && armoireForm.$dirty" ng-click="ok()">Save</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+</form>

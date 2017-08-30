@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+<head>
+  <title>Armoire</title>
+
+  <base href="/">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#344f7a">
+  <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#344f7a">
+
+  <!-- build:vendorCss /css/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css">
+  <link rel="stylesheet" href="/bower_components/chartist/libdist/chartist.min.css">
+  <link rel="stylesheet" href="/bower_components/bootswatch/paper/bootstrap.css">
+  <link rel="stylesheet" href="/bower_components/ngtoast/dist/ngToast.css">
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="/bower_components/json-formatter/dist/json-formatter.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap-social/bootstrap-social.css">
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <!-- build:appCss /css/app.css -->
+  <!-- app:css -->
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <base href="/"/>
+</head>
+
+<body class="{{ bodyClasses }}">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="background"></div>
+
+<input type="checkbox" id="side-menu-toggle" hidden>
+
+<main-menu></main-menu>
+
+<side-menu></side-menu>
+
+<div id="content-wrapper">
+  <div id="main-container" class="container">
+    <div ui-view id="masterUI"></div>
+  </div>
+</div>
+
+<div id="sidemenu-backdrop"></div>
+
+<!-- Allows for JS queries easily -->
+<div class="bootstrap-views">
+  <div class="visible-xs bootstrap-view-xs"></div>
+  <div class="visible-sm bootstrap-view-sm"></div>
+  <div class="visible-md bootstrap-view-md"></div>
+  <div class="visible-lg bootstrap-view-lg"></div>
+</div>
+
+<!-- build:vendorJs /javascripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/json3/lib/json3.js"></script>
+<script src="/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/jquery.inview/jquery.inview.js"></script>
+<script src="/bower_components/jquery-sticky/jquery.sticky.js"></script>
+<script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+<script src="/bower_components/gsap/src/uncompressed/jquery.gsap.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-touch/angular-touch.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="/bower_components/Faker/build/build/faker.js"></script>
+<script src="/bower_components/progressbar.js/dist/progressbar.js"></script>
+<script src="/bower_components/marka/dist/js/marka.js"></script>
+<script src="/bower_components/chartist/libdist/chartist.min.js"></script>
+<script src="/bower_components/moment/moment.js"></script>
+<script src="/bower_components/restangular/dist/restangular.js"></script>
+<script src="/bower_components/velocity/velocity.js"></script>
+<script src="/bower_components/velocity/velocity.ui.js"></script>
+<script src="/bower_components/angular-progress-arc/angular-progress-arc.js"></script>
+<script src="/bower_components/ngtoast/dist/ngToast.js"></script>
+<script src="/bower_components/angular-ui-utils/ui-utils.js"></script>
+<script src="/bower_components/flow.js/dist/flow.js"></script>
+<script src="/bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
+<script src="/bower_components/angular-scroll/angular-scroll.js"></script>
+<script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/bower_components/angular-sweetalert/SweetAlert.js"></script>
+<script src="/bower_components/angular-gsapify-router/angular-gsapify-router.js"></script>
+<script src="/bower_components/angular-ui-sref-fastclick/angular-ui-sref-fastclick.js"></script>
+<script src="/bower_components/angular-socket-io/socket.js"></script>
+<script src="/bower_components/json-formatter/dist/json-formatter.js"></script>
+<script src="/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="/bower_components/moment-timezone/builds/moment-timezone-with-data-2012-2022.js"></script>
+<script src="/bower_components/angular-ui-router-tabs/src/ui-router-tabs.js"></script>
+<script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+<script src="/bower_components/angular-velocity/angular-velocity.min.js"></script>
+<script src="/bower_components/ng-flow/dist/ng-flow.js"></script>
+<script src="/bower_components/socket.io-client/socket.io.js"></script>
+<!-- endinject -->
+<!-- endbuild -->
+
+<!-- build:appJs /javascripts/app.js -->
+<!-- app:js -->
+<script src="/javascripts/utils.js"></script>
+<script src="/javascripts/routingConfig.js"></script>
+<script src="/javascripts/app.js"></script>
+<script src="/javascripts/templates.js"></script>
+<script src="/components/Armoire-service/Armoire.service.js"></script>
+<script src="/components/Clothing-service/Clothing.service.js"></script>
+<script src="/components/Delivery-service/Delivery.service.js"></script>
+<script src="/components/User-service/User.service.js"></script>
+<script src="/components/accessLevel-directive/accessLevel.directive.js"></script>
+<script src="/components/addressBasedGoogleMap-directive/addressBasedGoogleMap.directive.js"></script>
+<script src="/components/appSocket-factory/appSocket.factory.js"></script>
+<script src="/components/armoireRepo-factory/armoireRepo.factory.js"></script>
+<script src="/components/auth-factory/auth.factory.js"></script>
+<script src="/components/armoireTypeAdmin-directive/armoireTypeAdmin.directive.js"></script>
+<script src="/components/avatarUpload-modal/avatarUpload.modal.controller.js"></script>
+<script src="/components/billing-directive/billing.directive.js"></script>
+<script src="/components/bodyClass-factory/bodyclass.factory.js"></script>
+<script src="/components/calendar-directive/calendar.directive.js"></script>
+<script src="/components/capitalize-filter/capitalize.filter.js"></script>
+<script src="/components/centscurrency-filter/centscurrency.filter.js"></script>
+<script src="/components/charges-directive/charges.directive.js"></script>
+<script src="/components/charges-factory/charges.factory.js"></script>
+<script src="/components/clearOnFocus-directive/clearOnFocus.directive.js"></script>
+<script src="/components/clothingItem-directive/clothingItem.directive.js"></script>
+<script src="/components/clothingItemRepo-factory/clothingItemRepo.factory.js"></script>
+<script src="/components/clothingTypeAdmin-directive/clothingTypeAdmin.directive.js"></script>
+<script src="/components/clothingTypeRepo-factory/clothingTypeRepo.factory.js"></script>
+<script src="/components/collection-filter/collection.filter.js"></script>
+<script src="/components/countNonDelivered-filter/countNonDelivered.filter.js"></script>
+<script src="/components/countrySelect-directive/countrySelect.directive.js"></script>
+<script src="/components/deliverItems-modal/deliverItems.modal.controller.js"></script>
+<script src="/components/deliveryItem-directive/deliveryItem.directive.js"></script>
+<script src="/components/deliveryMap-directive/deliverymap.directive.js"></script>
+<script src="/components/deliveryRepo-factory/deliveryRepo.factory.js"></script>
+<script src="/components/events-constant/events.js"></script>
+<script src="/components/faked-factory/faked.factory.js"></script>
+<script src="/components/faq-constant/faq.constant.js"></script>
+<script src="/components/file-directive/file.directive.js"></script>
+<script src="/components/floatingLabel-directive/floatingLabel.directive.js"></script>
+<script src="/components/geolocation-factory/geolocation.factory.js"></script>
+<script src="/components/imageRepo-factory/imageRepo.factory.js"></script>
+<script src="/components/login-directive/login.directive.js"></script>
+<script src="/components/main/main.controller.js"></script>
+<script src="/components/mainMenu-directive/mainMenu.directive.js"></script>
+<script src="/components/momentFormat-directive/momentformat.directive.js"></script>
+<script src="/components/newArmoire-modal/newArmoire.modal.controller.js"></script>
+<script src="/components/newArmoireItem-directive/newArmoireItem.directive.js"></script>
+<script src="/components/onFocus-directive/onFocus.directive.js"></script>
+<script src="/components/onImgError-directive/onImgError.directive.js"></script>
+<script src="/components/pricingRepo-factory/pricingRepo.factory.js"></script>
+<script src="/components/redirectToUrlAfterLogin-factory/redirectToUrlAfterLogin.factory.js"></script>
+<script src="/components/regions-constant/regions.constant.js"></script>
+<script src="/components/requireMirrorInput-directive/requireMirrorInput.directive.js"></script>
+<script src="/components/routes-config/routes.js"></script>
+<script src="/components/scrollTo-directive/scrollTo.directive.js"></script>
+<script src="/components/scrollToTop-factory/scrollToTop.factory.js"></script>
+<script src="/components/showErrors-directive/showErrors.directive.js"></script>
+<script src="/components/sideMenu-directive/sidemenu.directive.js"></script>
+<script src="/components/slot-directive/slot.directive.js"></script>
+<script src="/components/slots-directive/slots.directive.js"></script>
+<script src="/components/smallCenterWithLogo-directive/smallCenterWithlogo.directive.js"></script>
+<script src="/components/userAvatar-directive/userAvatar.directive.js"></script>
+<script src="/components/validationPatterns-constant/validationPatterns.constant.js"></script>
+<script src="/components/views-constant/views.constant.js"></script>
+<script src="/components/states/404/404.controller.js"></script>
+<script src="/components/states/about/about.controller.js"></script>
+<script src="/components/states/admin/admin.controller.js"></script>
+<script src="/components/states/contact/contact.controller.js"></script>
+<script src="/components/states/customer/customer.controller.js"></script>
+<script src="/components/states/forgot-password/forgot-password.controller.js"></script>
+<script src="/components/states/logout/logout.controller.js"></script>
+<script src="/components/states/profile/profile.controller.js"></script>
+<script src="/components/states/reset-password/reset-password.controller.js"></script>
+<script src="/components/states/signup/signup.controller.js"></script>
+<script src="/components/states/admin/customer/customer.controller.js"></script>
+<script src="/components/states/admin/delivery/delivery.controller.js"></script>
+<script src="/components/states/admin/index/index.controller.js"></script>
+<script src="/components/states/admin/pricing/pricing.controller.js"></script>
+<script src="/components/states/admin/pricing/pricingArmoire.controller.js"></script>
+<script src="/components/states/admin/pricing/pricingClothingItem.controller.js"></script>
+<script src="/components/states/admin/stats/stats.controller.js"></script>
+<script src="/components/states/admin/support/support.controller.js"></script>
+<script src="/components/states/customer/armoires/customer.armoires.controller.js"></script>
+<script src="/components/states/customer/billing/customer.billing.controller.js"></script>
+<script src="/components/states/customer/index/customer.index.controller.js"></script>
+<script src="/components/states/customer/settings/customer.settings.controller.js"></script>
+<script src="/components/states/customer/support/customer.support.controller.js"></script>
+<script src="/components/states/admin/customer/show/armoire.single.controller.js"></script>
+<script src="/components/states/admin/customer/show/billing.controller.js"></script>
+<script src="/components/states/admin/customer/show/show.controller.js"></script>
+<script src="/components/states/admin/customer/show/support.controller.js"></script>
+<script src="/components/states/admin/delivery/show/show.controller.js"></script>
+<script src="/components/states/customer/armoires/create/create.controller.js"></script>
+<script src="/components/states/customer/armoires/index/index.controller.js"></script>
+<script src="/components/states/customer/armoires/show/show.controller.js"></script>
+<!-- endinject -->
+<!-- endbuild -->
+
+<script>
+  var strapped = false;
+  $(function(){
+    if(strapped)
+      return;
+
+    angular.bootstrap(window.document.body, ['app']);
+    strapped = true;
+  });
+</script>
+</body>
+</html>

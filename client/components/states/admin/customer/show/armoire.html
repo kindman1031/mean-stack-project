@@ -1,0 +1,27 @@
+<div ui-view class="well">
+  <div ng-if="!fetchedUser.armoires.length">
+    No Armoires yet.
+  </div>
+
+  <ul class="list-inline armoire-list row">
+    <li class="armoire-list-item col-xs-12 col-sm-6 col-md-3" ng-repeat="armoire in fetchedUser.armoires">
+      <div class="btn btn-primary btn-block" ui-sref=".single({ armoireId: armoire.id })">
+        <h4 class="text-white">
+          {{ armoire.name }}
+        </h4>
+
+        <ul class="list-unstyled">
+          <li>
+            <h6 class="text-info">
+              <strong>{{ armoire.type.title }}</strong>
+              <span class="text-muted"> - </span>
+              <strong>{{ armoire.items.length }} Items</strong>
+            </h6>
+          </li>
+          <li>{{ armoire.createdAtReadable }}</li>
+          <li>&nbsp;</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

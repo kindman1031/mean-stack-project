@@ -1,0 +1,54 @@
+<form name="armoireForm" ng-submit="saveArmoire()">
+  <div class="well">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <h4>{{ armoireType.title }} Armoire <small>${{ armoireType.price }}</small></h4>
+
+        <div class="form-group">
+          <label for="armoire.name">Name This Armoire</label>
+          <input id="armoire.name" ng-model="armoire.name" class="form-control" placeholder="Formal wear, casual wear, etc" required floating-label>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div collapse="!armoire.deliveryTime">
+          <h5>Dropoff Time</h5>
+
+          <p>{{ armoire.deliveryTimeReadable }}</p>
+          <a class="btn btn-info" ng-click="armoire.deliveryTime = null">Choose another time</a>
+        </div>
+
+        <div collapse="armoire.deliveryTime">
+          <h5>Choose Dropoff Time</h5>
+
+          <div class="row">
+            <div class="col-xs-7 col-sm-5">
+              <div class="form-group">
+                <label for="delivery.day">Day</label>
+                <select class="form-control" id="delivery.day" ng-model="deliveryDay"placeholder="Day" ng-disabled="!armoire.name">
+                  <option ng-repeat="group in groups" value="{{$index}}">{{ group[0].format('dddd, MMM Do') }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xs-5 col-sm-7" collapse="!deliveryDay">
+              <div class="form-group">
+                <label for="delivery.time">Time</label>
+                <select class="form-control" id="delivery.time" ng-model="armoire.deliveryTime" np-options="slot in groups[deliveryDay]" >
+                  <option ng-repeat="slot in groups[deliveryDay]" value="{{ slot.format() }}">@ {{ slot.format('LT') }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-block btn-lg btn-primary" type="submit" ng-disabled="armoireForm.$invalid || armoireForm.$pristine">
+    <i class="fa fa-plus"></i>
+    Add
+  </button>
+</form>
+
+<!--<json-formatter class="json-formatter json-formatter-dark" json="armoire"></json-formatter>-->

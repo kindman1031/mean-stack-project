@@ -1,0 +1,32 @@
+<div class="messages">
+  <ul class="list-unstyled">
+    <li class="message" ng-repeat="message in support.messages" ng-class="{'from-user':message.owner.id == currentUser.id}">
+      <div class="message-body" ng-bind-html="message.content"></div>
+
+      <div class="message-footer">
+        <div class="label label-primary" ng-if="message.owner.id == currentUser.id">You</div>
+        <div class="label label-info" ng-if="!message.owner">App</div>
+        <div class="label label-success" ng-if="message.owner && message.owner.id != currentUser.id">{{ message.owner.firstName}} {{ message.owner.lastName}}</div>
+
+            <span class="message-date">
+              <small>&nbsp; {{ message.createdAtReadable }}</small>
+            </span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div id="reply-box" class="panel">
+  <div class="container">
+    <form name="messageForm" class="panel-body" ng-submit="sendMessage()">
+
+      <div class="form-group">
+        <textarea id="message" name="message" class="form-control" placeholder="How can we assist you?" ng-model="message" required ng-disabled="sendingMessage"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-block btn-primary" ng-disabled="messageForm.$invalid || messageForm.$pristine || sendingMessage">Send</button>
+    </form>
+  </div>
+</div>
+
+<div id="after-messages"></div>

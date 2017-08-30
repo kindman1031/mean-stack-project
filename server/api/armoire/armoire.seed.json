@@ -1,0 +1,22 @@
+{
+  "armoireTypes": [
+    {
+      "title": "Standard",
+      "price": 395,
+      "description": "All items  professionally laundered. Up to 50 items.",
+      "features": {
+        "chargeDryCleaning": true,
+        "chargeDeliveries": true
+      }
+    },
+    {
+      "title": "Deluxe",
+      "price": 595,
+      "description": "All items professionally <strong>dry cleaned</strong>. Up to 50 items.",
+      "features": {
+        "chargeDryCleaning": false,
+        "chargeDeliveries": false
+      }
+    }
+  ]
+}

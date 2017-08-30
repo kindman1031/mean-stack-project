@@ -1,0 +1,79 @@
+<div id="side-menu">
+  <label class="close-btn" for="side-menu-toggle">
+    <i class="fa fa-close fa-lg"></i>
+  </label>
+
+  <div class="header">
+    <span access-level="accessLevels.anon">Welcome</span>
+        <span access-level="accessLevels.user">
+            <div class="welcome">Welcome</div>
+            {{ user.firstName }}
+        </span>
+  </div>
+
+  <ul class="list-unstyled user" access-level="accessLevels.admin" >
+    <li ui-sref-active-eq="active"><a ui-sref="admin.index" title="Home">
+      <i class="fa fa-fw fa-home"></i>
+      Admin
+    </a></li>
+
+    <li ui-sref-active-eq="active"><a ui-sref="admin.customer" title="Customers">
+      <i class="fa fa-fw fa-users"></i>
+      Customers
+    </a></li>
+
+    <li ui-sref-active-eq="active"><a ui-sref="admin.delivery" title="Deliveries">
+      <i class="fa fa-fw fa-truck"></i>
+      Deliveries
+    </a></li>
+
+    <li ui-sref-active-eq="active"><a ui-sref="admin.pricing.armoire" title="Pricing">
+      <i class="fa fa-fw fa-dollar"></i>
+      Pricing
+    </a></li>
+
+    <!--
+    <li ui-sref-active-eq="active"><a ui-sref="admin.support" title="Support">
+      <i class="fa fa-fw fa-comments"></i> Support
+    </a></li>
+    -->
+  </ul>
+
+  <ul class="list-unstyled user" data-access-level="accessLevels.user">
+    <li ui-sref-active-eq="active"><a ui-sref="customer.armoires" title="Armoires">
+      <i class="fa fa-fw fa-suitcase"></i>
+      Armoires
+    </a></li>
+
+    <li ui-sref-active-eq="active"><a ui-sref="customer.index" title="All Clothes">
+      <i class="fa fa-fw fa-tags"></i>
+      All Clothes
+    </a></li>
+
+
+
+    <li ui-sref-active-eq="active"><a ui-sref="customer.billing" title="Billing">
+      <i class="fa fa-fw fa-credit-card"></i>
+      Billing
+    </a></li>
+
+    <li ui-sref-active-eq="active"><a ui-sref="customer.support" title="Support">
+      <i class="fa fa-fw fa-life-ring"></i>
+      Support
+    </a></li>
+  </ul>
+
+  <ul class="list-unstyled user" access-level="accessLevels.user">
+    <li ui-sref-active-eq="active">
+      <a ui-sref="profile"><i class="fa fa-fw fa-user"></i> Profile </a>
+      <a ui-sref="logout"><i class="fa fa-fw fa-sign-out"></i> Logout </a>
+    </li>
+  </ul>
+
+  <ul class="list-unstyled">
+    <li data-access-level="accessLevels.anon" ui-sref-active-eq="active"><a ui-sref="login">Login</a></li>
+    <li data-access-level="accessLevels.anon" ui-sref-active-eq="active"><a ui-sref="signup">Signup</a></li>
+    <!--<li ui-sref-active-eq="active"><a ui-sref="about">About</a></li>-->
+    <!--<li ui-sref-active-eq="active"><a ui-sref="contact">Contact</a></li>-->
+  </ul>
+</div>

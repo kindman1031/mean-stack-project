@@ -1,0 +1,25 @@
+.pointer {
+  cursor: pointer;
+}
+
+.text-lg {
+  font-size: 1.4em;
+}
+
+.text-sm {
+  font-size: .7em;
+}
+
+.text-xs {
+  font-size: .5em;
+}
+
+.margin-bottom {
+  margin-bottom: 1em;
+}
+
+.xs-margin-bottom {
+  @include breakpoint($bp-xs){
+    margin-bottom: 1em;
+  }
+}

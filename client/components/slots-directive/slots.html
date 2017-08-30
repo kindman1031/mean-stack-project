@@ -1,0 +1,35 @@
+
+<!--<ul class="slots list-unstyled">
+  <li class="h5" ng-repeat-start="group in groups">{{ group[0].format('dddd') }} <small>{{ group[0].format('MMMM Do') }}</small></li>
+
+  <li>
+    <ul class="list-unstyled row">
+      <li class="col-xs-6 col-sm-4 col-md-3" slot="slot" slot-format="LT" ng-repeat="slot in group"></li>
+    </ul>
+  </li>
+1
+  <li ng-repeat-end="">&nbsp;</li>
+</ul>
+-->
+
+<div class="row">
+  <div class="col-xs-7 col-sm-4">
+    <div class="form-group">
+      <label for="delivery.day">Day</label>
+      <select class="form-control" id="delivery.day" ng-model="deliveryDay"placeholder="Day">
+        <option ng-repeat="group in groups" value="{{$index}}">{{ group[0].format('dddd, MMM Do') }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-xs-5 col-sm-8" collapse="!deliveryDay">
+    <div class="form-group">
+      <label for="delivery.time">Time</label>
+      <select class="form-control" id="delivery.time" ng-model="selectedSlot" np-options="slot in groups[deliveryDay]" >
+        <option ng-repeat="slot in groups[deliveryDay]" value="{{ slot.format() }}">@ {{ slot.format('LT') }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<json-formatter class="json-formatter json-formatter-dark" json="this"></json-formatter>

@@ -1,0 +1,56 @@
+<div class="modal-body delivery-items-modal">
+  <div>
+    <h4 class="delivery-items-modal__heading">Select Items to Dropoff</h4>
+    <p class="delivery-items-modal__help">Click image to select item</p>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-4" ng-repeat="item in items | filter:q | orderBy: '-createdAt'">
+        <div class="delivery-items-modal__item" ng-if="item.status === 'inarmoire'">
+          <i class="fa fa-check delivery-items-modal__item__check" ng-if="item.selected"></i>
+          <img class="delivery-items-modal__item__img img-responsive img-rounded light-shadow"
+            ng-class="{'delivery-items-modal__item__img--active': item.selected}"
+            ng-click="toggleItem(item)"
+            ng-src="{{ item.image.thumbnail }}"
+            on-img-error="https://placehold.it/150x150?text=Armoire"/>
+          <p class="delivery-items-modal__item__name">{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div collapse="!itemsSelected">
+    <div collapse="!deliveryTime">
+      <h4 class="delivery-items-modal__heading">Dropoff Time</h4>
+      <p>{{ deliveryTime | date:'MM/dd/yyyy @ hh:mm a' }}</p>
+      <a class="btn btn-info" ng-click="deliveryTime = null">Choose another time</a>
+    </div>
+    <div collapse="deliveryTime">
+      <h4 class="delivery-items-modal__heading">Choose Dropoff Time</h4>
+      <div class="row">
+        <div class="col-xs-7 col-sm-5">
+          <div class="form-group">
+            <label for="delivery.day">Day</label>
+            <select class="form-control" id="delivery.day" ng-model="deliveryDay" placeholder="Day">
+              <option ng-repeat="group in groups" value="{{$index}}">{{ group[0].format('dddd, MMM Do') }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-xs-5 col-sm-7" collapse="!deliveryDay">
+          <div class="form-group">
+            <label for="delivery.time">Time</label>
+            <select class="form-control" id="delivery.time" ng-model="deliveryTime" np-options="slot in groups[deliveryDay]">
+              <option ng-repeat="slot in groups[deliveryDay]" value="{{ slot.format() }}">
+                @{{ slot.format('LT') }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="text-center">
+    <button class="btn btn-primary" ng-disabled="!itemsSelected || !deliveryTime" ng-click="ok()">Deliver</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</div>

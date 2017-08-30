@@ -1,0 +1,97 @@
+
+<form name="nameForm" ng-submit="formSubmit()">
+  <div class="row">
+    <div small-center-with-logo></div>
+  </div>
+
+  <div class="well">
+    <h3 class="text-dark">Sign Up</h3>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" floating-label show-errors>
+          <label for="user_firstName">First Name</label>
+          <input id="user_firstName" name="user_firstName" class="form-control"
+                 type="text"
+                 required
+                 placeholder="Must be at least 3 characters long."
+                 ng-model="user.firstName"
+                 ng-pattern="validationPatterns.firstName">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group" floating-label show-errors>
+          <label for="user_lastName">Last Name</label>
+          <input id="user_lastName" name="user_lastName" class="form-control"
+                 type="text"
+                 required
+                 placeholder="Must be at least 3 characters long."
+                 ng-model="user.lastName"
+                 ng-pattern="validationPatterns.lastName">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" floating-label show-errors>
+          <label for="user_email">Email</label>
+          <input id="user_email" name="user_email" class="form-control"
+                 type="email"
+                 required
+                 placeholder="Email"
+                 ng-model="user.local.email">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group" floating-label show-errors>
+          <label for="phoneInput">Phone Number</label>
+          <input id="phoneInput" class="form-control"
+                 type="tel"
+                 required
+                 ng-model="user.phone"
+                 placeholder="Phone">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" floating-label show-errors>
+          <label for="user_password">Password</label>
+          <input id="user_password" name="user_password" class="form-control"
+                 type="password"
+                 required
+                 ng-model="user.local.password"
+                 placeholder="6-20 chars. 1 capitol. 1 number."
+                 ng-pattern="validationPatterns.password">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group" floating-label show-errors>
+          <label for="user_passwordRepeat">Repeat</label>
+          <input id="user_passwordRepeat" name="user_passwordRepeat" class="form-control"
+                 type="password"
+                 required
+                 ng-model="user.local.passwordRepeat"
+                 require-mirror-input="user_password">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" ng-disabled="nameForm.$invalid || nameForm.$pristine">Sign Up</button>
+  <button class="btn btn-info" ui-sref="home"><i class="fa fa-fw fa-chevron-left"></i> Login</button>
+</form>
+
+<div class="loading loading-fullscreen" collapse="!processing">
+  <div class="icon-container">
+    <div class="fa-stack">
+      <i class="fa fa-spin fa-stack-1x fa-circle-o-notch"></i>
+      <i class="fa fa-spin fa-stack-2x fa-circle-o-notch"></i>
+    </div>
+  </div>
+</div>

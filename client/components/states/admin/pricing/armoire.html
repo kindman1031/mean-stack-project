@@ -1,0 +1,5 @@
+<div armoire-type-admin item="newType" on-create="onNewType()"></div>
+
+<div class="anim-fade anim-scale" armoire-type-admin item="item" on-destroy="onDestroy()" ng-repeat="item in armoireTypes | orderBy: '-createdAt'"></div>
+
+<p>&nbsp;</p>

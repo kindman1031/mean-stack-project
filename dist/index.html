@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+<head>
+  <title>Armoire</title>
+
+  <base href="/">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#344f7a">
+  <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#344f7a">
+
+  <link rel="stylesheet" href="/css/vendor.b8a1ed16.css"/>
+
+  <link rel="stylesheet" href="/css/app.c547d83c.css"/>
+
+  <base href="/"/>
+</head>
+
+<body class="{{ bodyClasses }}">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="background"></div>
+
+<input type="checkbox" id="side-menu-toggle" hidden>
+
+<main-menu></main-menu>
+
+<side-menu></side-menu>
+
+<div id="content-wrapper">
+  <div id="main-container" class="container">
+    <div ui-view id="masterUI"></div>
+  </div>
+</div>
+
+<div id="sidemenu-backdrop"></div>
+
+<!-- Allows for JS queries easily -->
+<div class="bootstrap-views">
+  <div class="visible-xs bootstrap-view-xs"></div>
+  <div class="visible-sm bootstrap-view-sm"></div>
+  <div class="visible-md bootstrap-view-md"></div>
+  <div class="visible-lg bootstrap-view-lg"></div>
+</div>
+
+<script src="/javascripts/vendor.8d558f15.js"></script>
+
+<script src="/javascripts/app.c201e8a1.js"></script>
+
+<script>
+  var strapped = false;
+  $(function(){
+    if(strapped)
+      return;
+
+    angular.bootstrap(window.document.body, ['app']);
+    strapped = true;
+  });
+</script>
+</body>
+</html>

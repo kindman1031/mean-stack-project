@@ -1,0 +1,9 @@
+.admin-delivery-list-delivered {
+	.delivery-item {
+		margin-bottom: 1em;
+
+		@include breakpoint($bp-tablet-desktop){
+			@include set-columns(3,4%);
+		}
+	}
+}

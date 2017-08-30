@@ -1,0 +1,5 @@
+<div clothing-type-admin item="newType" on-create="onNewType()"></div>
+
+<div class="anim-fade anim-scale" clothing-type-admin item="item" on-destroy="onDestroy()" ng-repeat="item in clothingTypes | orderBy: '-createdAt'"></div>
+
+<p>&nbsp;</p>
